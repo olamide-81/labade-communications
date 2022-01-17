@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import db from "../firebase";
+import Recommends from "./Recommends";
+import NewDisney from "./NewDisney";
 
 const Detail = (props) => {
   const { id } = useParams();
@@ -55,6 +57,7 @@ const Detail = (props) => {
         <SubTitle>{detailData.subTitle}</SubTitle>
         <Description>{detailData.description}</Description>
       </ContentMeta>
+      <Recommends/>
     </Container>
   );
 };

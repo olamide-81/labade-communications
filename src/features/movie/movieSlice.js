@@ -1,3 +1,5 @@
+// boiler plate redux code
+
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

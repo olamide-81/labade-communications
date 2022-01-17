@@ -5,6 +5,7 @@ import Originals from "./Originals";
 import Recommends from "./Recommends";
 import Trending from "./Trending";
 import Viewers from "./Viewers";
+import Comingsoon from "./Comingsoon";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import db from "../firebase";
@@ -56,26 +57,21 @@ const Home = (props) => {
 
   return (
     <Container>
-      <ImgSlider />
-      <Viewers />
-      <Recommends />
-      <NewDisney />
-      <Originals />
-      <Trending />
+    <Comingsoon/>
     </Container>
   );
 };
-
+// styling of the main body on the home page, adding background and arranging th diffrent sections
 const Container = styled.main`
   position: relative;
   min-height: calc(100vh - 250px);
   overflow-x: hidden;
   display: block;
-  top: 72px;
+  
   padding: 0 calc(3.5vw + 5px);
 
   &:after {
-    background: url("/images/home-background.png") center center / cover
+    background-color: white; center center / cover
       no-repeat fixed;
     content: "";
     position: absolute;

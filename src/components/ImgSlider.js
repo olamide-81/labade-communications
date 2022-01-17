@@ -37,6 +37,26 @@ const ImgSlider = (props) => {
           <img src="/images/slider-scales.jpg" alt="" />
         </a>
       </Wrap>
+      <Wrap>
+        <a>
+          <img src="/images/image-sliderpage4.png" alt="" />
+        </a>
+      </Wrap>
+      <Wrap>
+        <a>
+          <img src="/images/image-sliderprincess.jpg" alt="" />
+        </a>
+      </Wrap>
+      <Wrap>
+        <a>
+          <img src="/images/img-sliderdisney.jpg" alt="" />
+        </a>
+      </Wrap>
+      <Wrap>
+        <a>
+          <img src="/images/img-slidermarvel.jpg" alt="" />
+        </a>
+      </Wrap>
     </Carousel>
   );
 };

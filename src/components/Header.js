@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { auth, provider } from "../firebase";
 import {
   selectUserName,
@@ -16,6 +16,7 @@ const Header = (props) => {
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
+  // if signed in add the home path to the history its a function that only runs when the variable username is updated it will detect the user logged in and bring him or her to the home page
   useEffect(() => {
     auth.onAuthStateChanged(async (user) => {
       if (user) {
@@ -24,7 +25,9 @@ const Header = (props) => {
       }
     });
   }, [userName]);
+// code snippet add on
 
+//if the username doesnt exist sign in
   const handleAuth = () => {
     if (!userName) {
       auth
@@ -35,6 +38,7 @@ const Header = (props) => {
         .catch((error) => {
           alert(error.message);
         });
+        // if not if it exist sign the person out
     } else if (userName) {
       auth
         .signOut()
@@ -58,40 +62,43 @@ const Header = (props) => {
 
   return (
     <Nav>
+      <Link to='/home'>
       <Logo>
-        <img src="/images/logo.svg" alt="Disney+" />
+      <p>
+      Labade Communications Limited
+        </p>
       </Logo>
-
+      </Link>
       {!userName ? (
         <Login onClick={handleAuth}>Login</Login>
       ) : (
         <>
-          <NavMenu>
+         <NavMenu>
             <a href="/home">
               <img src="/images/home-icon.svg" alt="HOME" />
-              <span>HOME</span>
+              <span></span>
             </a>
             <a>
               <img src="/images/search-icon.svg" alt="SEARCH" />
-              <span>SEARCH</span>
+              <span></span>
             </a>
             <a>
               <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
-              <span>WATCHLIST</span>
+              <span></span>
             </a>
             <a>
               <img src="/images/original-icon.svg" alt="ORIGINALS" />
-              <span>ORIGINALS</span>
+              <span></span>
             </a>
             <a>
               <img src="/images/movie-icon.svg" alt="MOVIES" />
-              <span>MOVIES</span>
+              <span></span>
             </a>
             <a>
               <img src="/images/series-icon.svg" alt="SERIES" />
-              <span>SERIES</span>
+              <span></span>
             </a>
-          </NavMenu>
+          </NavMenu> 
           <SignOut>
             <UserImg src={userPhoto} alt={userName} />
             <DropDown>
@@ -110,7 +117,10 @@ const Nav = styled.nav`
   left: 0;
   right: 0;
   height: 70px;
-  background-color: #090b13;
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -119,18 +129,13 @@ const Nav = styled.nav`
   z-index: 3;
 `;
 
-const Logo = styled.a`
-  padding: 0;
-  width: 80px;
-  margin-top: 4px;
-  max-height: 70px;
-  font-size: 0;
-  display: inline-block;
-
-  img {
-    display: block;
-    width: 100%;
-  }
+const Logo = styled.h2`
+  color: black;
+  font-size: 17px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  align-items: center;
 `;
 
 const NavMenu = styled.div`
@@ -193,9 +198,9 @@ const NavMenu = styled.div`
     }
   }
 
-  /* @media (max-width: 768px) {
+   @media (max-width: 768px) {
     display: none;
-  } */
+  } 
 `;
 
 const Login = styled.a`
@@ -239,7 +244,9 @@ const SignOut = styled.div`
   width: 48px;
   display: flex;
   cursor: pointer;
+  // vertically align
   align-items: center;
+  //horizontally align
   justify-content: center;
 
   ${UserImg} {

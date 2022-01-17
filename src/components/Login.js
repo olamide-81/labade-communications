@@ -5,14 +5,18 @@ const Login = (props) => {
     <Container>
       <Content>
         <CTA>
-          <CTALogoOne src="/images/cta-logo-one.svg" alt="" />
-          <SignUp>GET ALL THERE</SignUp>
+        <Header>
+           Key Performance Indicator for measuring performance over time for a specific objective. This system will provide targets for teams to shoot for, milestones to gauge progress, and insights that help people across the organization make better decisions.
+          </Header>
+          <SignUp>SIGN IN WITH GOOGLE <br/>  <Mincontent> click on the login button on the navigation bar</Mincontent></SignUp> 
           <Description>
-            Get Premier Access to Raya and the Last Dragon for an additional fee
-            with a Disney+ subscription. As of 03/26/21, the price of Disney+
-            and The Disney Bundle will increase by $1.
+         Access content and services as an employee of labade communications and get access to your dashboard and profile. 
           </Description>
-          <CTALogoTwo src="/images/cta-logo-two.png" alt="" />
+          <CTALogoTwo src="/images/partners.jpg" alt="" />
+          <Description_bottom>
+          Developed by olamide.developer
+          </Description_bottom>
+          <CTALogoThree src="/images/tro.png" alt="" />
         </CTA>
         <BgImage />
       </Content>
@@ -45,9 +49,7 @@ const Content = styled.div`
 const BgImage = styled.div`
   height: 100%;
   background-position: top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image: url("/images/login-background.jpg");
+ background-color: white;
   position: absolute;
   top: 0;
   right: 0;
@@ -62,12 +64,43 @@ const CTA = styled.div`
   flex-direction: column;
 `;
 
+const Header = styled.h2`
+  color: black;
+  font-size: 15px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+`;
+
 const CTALogoOne = styled.img`
   margin-bottom: 12px;
   max-width: 600px;
   min-height: 1px;
   display: block;
   width: 100%;
+`;
+
+const CTALogoThree = styled.img`
+  margin-bottom: 12px;
+  max-width: 60px;
+  min-height: 1px;
+  display: block;
+  width: 100%;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  padding: 10px;
+`;
+
+const Description_bottom = styled.p`
+  color: black;
+  position: absolute;
+  right: 60px;
+  bottom: 0px;
+  font-size: 11px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
 `;
 
 const SignUp = styled.a`
@@ -88,11 +121,29 @@ const SignUp = styled.a`
 `;
 
 const Description = styled.p`
-  color: hsla(0, 0%, 95.3%, 1);
+  color: black;
   font-size: 11px;
   margin: 0 0 24px;
   line-height: 1.5;
   letter-spacing: 1.5px;
+`;
+
+const Mincontent = styled.a`
+  color: black;
+  font-size: 11px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+  color: #f9f9f9;
+  background-color: #0063e5;
+  margin-bottom: 12px;
+  width: 100%;
+
+  
+  &:hover {
+    background-color: #0483ee;
+  }
+  
 `;
 
 const CTALogoTwo = styled.img`
